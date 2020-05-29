@@ -3,3 +3,13 @@ src/*.js
 src/*.js.map
 .credentials
 .env
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
