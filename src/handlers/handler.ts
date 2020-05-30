@@ -80,5 +80,38 @@ export abstract class Handler {
     }
   }
 
+  protected async addUserToRoom(contact: WechatyContact, room: WechatyRoom) {
+    const roomMaxSize = 500;
+    let roomMemberCount: number, hasMember: boolean;
+    try {
+      roomMemberCount = await room
+        .memberAll()
+        .then((memberList: any[]) => memberList.length)
+        .catch(() => 0);
+      hasMember = await room.has(contact);
+    } catch (error) {
+      logger.error(
+        "Bot",
+        "addUserToRoom() call room.memberAll(),room.has() exception: " +
+          error.stack
+      );
+      throw new Error("不好意思，邀請過程中發生點問題，請聯絡管理員");
+    }
+
+    if (roomMemberCount >= roomMaxSize)
+      throw new Error("不好意思，想加的群超過500人了，請聯絡管理員");
+    if (hasMember) throw new Error("不好意思，你已經在想加的群中了");
+    await this.sleep();
+    try {
+      room.add(contact);
+    } catch (error) {
+      logger.error(
+        "Bot",
+        "addUserToRoom() call room.add() exception: " + error.stack
+      );
+      throw new Error("不好意思，邀請過程中發生點問題，請聯絡管理員");
+    }
+  }
+
   public abstract listener(...args: any[]): void;
 }
