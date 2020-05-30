@@ -29,14 +29,12 @@ export abstract class Handler {
     this.mongoStorage = mongoStorage;
   }
 
-  protected async sleep(
-    ms: number = util.get_random_int_inclusive(3000, 5000)
-  ) {
+  protected async sleep(ms: number = util.getRandomIntInclusive(3000, 5000)) {
     await util.sleep(ms);
   }
 
-  protected get_random_int_inclusive(min: number, max: number) {
-    return util.get_random_int_inclusive(min, max);
+  protected getRandomIntInclusive(min: number, max: number) {
+    return util.getRandomIntInclusive(min, max);
   }
 
   protected async getRoomListToString(
