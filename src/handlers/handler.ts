@@ -78,6 +78,16 @@ export abstract class Handler {
     }
   }
 
+  protected async getRoomList2020s() {
+    const room2020sRegexpGroup: RegExp[] = [
+      /`ZGZG 2020S`/gim,
+      /`ZGZG-2020S`/gim,
+      /`云生活-觀眾嘉年華`/gim,
+    ];
+    const room2020sList = await this.getRoomList(room2020sRegexpGroup);
+    return room2020sList;
+  }
+
   protected async addUserToRoom(contact: WechatyContact, room: WechatyRoom) {
     const roomMaxSize = 500;
     let roomMemberCount: number, hasMember: boolean;
