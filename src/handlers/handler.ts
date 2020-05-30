@@ -39,13 +39,18 @@ export abstract class Handler {
     return util.get_random_int_inclusive(min, max);
   }
 
-  protected async getRoomListToString(roomList: WechatyRoom[]) {
+  protected async getRoomListToString(
+    roomList: WechatyRoom[],
+    displayId: boolean = false
+  ) {
     let roomItemList: string = "rooms list:\n";
 
     try {
       for (let i = 0; i < roomList.length; i++) {
         const roomTopic = await roomList[i].topic();
-        roomItemList += i + 1 + `. ${roomTopic} id: ${roomList[i].id}\n`;
+        if (displayId)
+          roomItemList += i + 1 + `. ${roomTopic}  id: ${roomList[i].id}\n`;
+        else roomItemList += i + 1 + `. ${roomTopic}\n`;
       }
 
       return roomItemList;
