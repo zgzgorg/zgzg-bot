@@ -19,11 +19,6 @@ export class Message extends Handler {
     );
   }
 
-  private getRoomList() {
-    //TODO: add room list here
-    return "";
-  }
-
   public async listener(message: WechatyMessage) {
     logger.debug({ event: "message", data: message });
     this.mongoStorage.save(`WeChatyPadproMessage`, message);
