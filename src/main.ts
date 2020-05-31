@@ -13,7 +13,8 @@ function botInstantiate(): Wechaty {
   });
 
   const bot = new Wechaty({
-    puppet,
+    name: "ZGZG Bot",
+    puppet: puppet,
   });
 
   logger.info(`wechaty version:${bot.version()},`);
