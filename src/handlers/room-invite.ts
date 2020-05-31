@@ -12,7 +12,9 @@ export class RoomInvite extends Handler {
       const roomTopic: string = await roomInvitation.topic();
 
       logger.info(`received room-invite event. from ${roomTopic}`);
-      // await roomInvitation.accept();
+      const deplyRoomInviteSec = this.getRandomIntInclusive(15000, 300000);
+      await this.sleep(deplyRoomInviteSec);
+      await roomInvitation.accept();
     } catch (e) {
       logger.error(`room-invite event exception: ${e.stack}`);
     }
