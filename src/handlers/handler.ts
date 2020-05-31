@@ -22,7 +22,7 @@ export {
 };
 
 export abstract class Handler {
-  // TODO: add Wechaty cache for findAll() room
+  // TODO(WilliamC, kis87988): add Wechaty cache for findAll() room
   protected bot: Wechaty;
   protected mongoStorage: MongoStorage;
   constructor(bot: Wechaty, mongoStorage: MongoStorage) {
@@ -88,7 +88,7 @@ export abstract class Handler {
   protected async getRoomList2020s() {
     const room2020sRegexpGroup: RegExp[] = [
       /ZGZGx開車群/gim,
-      // TODO: refactor to general room
+      // TODO(WilliamC, kis87988): refactor to general room
       /ZGZG[ -]2020s/gim,
       /“云集”志愿者大群 载歌在谷2020S/gim,
       /云生活-观众嘉年华/gim,

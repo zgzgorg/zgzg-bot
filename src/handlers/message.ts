@@ -21,7 +21,7 @@ export class Message extends Handler {
 
   public async listener(message: WechatyMessage) {
     logger.debug({ event: "message", data: message });
-    this.mongoStorage.save(`WeChatyPadproMessage`, message);
+    // this.mongoStorage.save(`WeChatyPadproMessage`, message);
 
     try {
       const fromContact: WechatyContact | null = message.from();
@@ -37,14 +37,14 @@ export class Message extends Handler {
         !fromContact ||
         fromContact.type() == WechatyContact.Type.Official
       ) {
-        // TODO: we can check bot is alive or not here
+        // TODO(WilliamC, kis87988): we can check bot is alive or not here
         return;
       }
 
-      // TODO: Check blocklist here
+      // TODO(WilliamC, kis87988): Check blocklist here
 
       if (fromRoom) {
-        // TODO: message from group chat room
+        // TODO(WilliamC, kis87988): message from group chat room
         return;
       }
 
