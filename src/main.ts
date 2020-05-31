@@ -54,20 +54,20 @@ async function main() {
 
   // bind all listeners
   bot
-    .on("error", botHandler.error.listener)
-    .on("ready", botHandler.ready.listener)
-    .on("start", botHandler.start.listener)
-    .on("stop", botHandler.stop.listener)
-    .on("scan", botHandler.scan.listener)
-    .on("login", botHandler.login.listener)
-    .on("logout", botHandler.logout.listener)
-    .on("message", botHandler.message.listener)
-    .on("friendship", botHandler.friendship.listener)
-    .on("room-join", botHandler.roomJoin.listener)
-    .on("room-leave", botHandler.roomLeave.listener)
-    .on("room-topic", botHandler.roomTopic.listener)
-    .on("room-invite", botHandler.roomInvite.listener)
-    .on("heartbeat", botHandler.heartbeat.listener);
+    .on("error", (...args) => botHandler.error.listener(...args))
+    .on("ready", (...args) => botHandler.ready.listener(...args))
+    .on("start", (...args) => botHandler.start.listener(...args))
+    .on("stop", (...args) => botHandler.stop.listener(...args))
+    .on("scan", (...args) => botHandler.scan.listener(...args))
+    .on("login", (...args) => botHandler.login.listener(...args))
+    .on("logout", (...args) => botHandler.logout.listener(...args))
+    .on("message", (...args) => botHandler.message.listener(...args))
+    .on("friendship", (...args) => botHandler.friendship.listener(...args))
+    .on("room-join", (...args) => botHandler.roomJoin.listener(...args))
+    .on("room-leave", (...args) => botHandler.roomLeave.listener(...args))
+    .on("room-topic", (...args) => botHandler.roomTopic.listener(...args))
+    .on("room-invite", (...args) => botHandler.roomInvite.listener(...args))
+    .on("heartbeat", (...args) => botHandler.heartbeat.listener(...args));
 
   // bot start
   bot.start();
