@@ -132,14 +132,15 @@ export abstract class Handler {
 
   protected async roomMatch(text: string, roomList: WechatyRoom[]) {
     let trimText = text.trim();
+    
+    // number only
     if (/\d+/gim.test(trimText)) {
-      // number only
       const roomIndex = +trimText - 1;
       if (roomIndex < roomList.length) return roomList[roomIndex];
     }
 
+    // text match room.topic()
     const textRegexp: RegExp = RegExp(trimText, "gim");
-
     for (const room of roomList) {
       const roomTopic: string = await room.topic();
       const roomTopicCN: string = tw2cn(roomTopic);
@@ -148,6 +149,8 @@ export abstract class Handler {
       if (textRegexp.test(roomTopicCN)) return room;
       if (textRegexp.test(roomTopicTW)) return room;
     }
+
+    // nothing match
     return null;
   }
 
