@@ -71,12 +71,12 @@ export abstract class Handler {
       // means get all rooms
       if (regexpGroup.length == 0) return roomList;
 
-      const filterRoomList: WechatyRoom[] = roomList.filter(async (room) => {
+      const filterRoomList: WechatyRoom[] = [];
+      for (const room of roomList) {
         const roomTopic = await room.topic();
         for (const regexp of regexpGroup)
-          if (regexp.test(roomTopic)) return true;
-        return false;
-      });
+          if (regexp.test(roomTopic)) filterRoomList.push(room);
+      }
       return filterRoomList;
     } catch (error) {
       logger.error("Bot", "getRoomList() exception: " + error.stack);
