@@ -74,6 +74,7 @@ export class Message extends Handler {
       }
 
       if (this.isTwText(messageText)) replyText = cn2tw(replyText);
+      else replyText = tw2cn(replyText)
       await message.say(replyText);
     } catch (e) {
       logger.error("Bot", "message event exception: %s", e.stack);
