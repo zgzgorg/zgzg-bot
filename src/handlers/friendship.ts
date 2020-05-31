@@ -13,7 +13,7 @@ export class Friendship extends Handler {
             `received friendship event from ${friendshipContact} with ${friendshipHelloStatement}`
           );
 
-          let sleepTime = this.get_random_int_inclusive(10000, 30000);
+          let sleepTime = this.getRandomIntInclusive(10000, 30000);
           await this.sleep(sleepTime);
           await friendship.accept();
           break;
@@ -23,13 +23,13 @@ export class Friendship extends Handler {
           logger.info(
             `friendship confirmed with ${friendshipContact}(${friendshipContact.id})`
           );
-          // let sayDelayTime = this.get_random_int_inclusive(10000, 30000);
-          // await this.sleep(sayDelayTime);
-          // await friendship.contact().say(`Welcome to talk to ZGZG Bot`)
+          let sayDelayTime = this.getRandomIntInclusive(10000, 30000);
+          await this.sleep(sayDelayTime);
+          await friendshipContact.say(`Welcome to talk to ZGZG Bot`);
 
           let updateContactDelayTime = 10000; //ms = 10 s
           await this.sleep(updateContactDelayTime);
-          await friendship.contact().sync();
+          await friendshipContact.sync();
           break;
         }
       }
