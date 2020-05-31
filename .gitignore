@@ -13,3 +13,4 @@ src/*.js.map
 
 # Local History for Visual Studio Code
 .history/
+*.memory-card.json
