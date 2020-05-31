@@ -47,6 +47,7 @@ export abstract class Handler {
     roomList: WechatyRoom[],
     displayId: boolean = false
   ) {
+    if (roomList.length == 0) return "";
     let roomItemList: string = "rooms list:\n";
 
     try {
