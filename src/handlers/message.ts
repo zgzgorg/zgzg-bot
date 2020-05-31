@@ -48,5 +48,27 @@ export class Message extends Handler {
     }
 
     // User talk to bot directly
+    const roomList2020s: WechatyRoom[] = await this.getRoomList2020s();
+    let room: WechatyRoom | null = null;
+    if ((room = await this.roomMatch(messageText, roomList2020s))) {
+      try {
+        await this.addUserToRoom(fromContact, room);
+        const roomTopic = await room.topic();
+        const roomAnnounce: string = await room.announce().catch((e) => "");
+        replyText = `歡迎加入 ${roomTopic},請看以下群公告:\n` + roomAnnounce;
+      } catch (error) {
+        replyText = error.message + `\n威廉　wechat id: kis87988`;
+      }
+    } else {
+      const roomList2020sContent = await this.getRoomListToString(
+        roomList2020s
+      );
+      replyText =
+        `不好意思，請告訴我你想加的群，以下是可以加入的群列表\n` +
+        roomList2020sContent +
+        `\n請輸入編號或群名加群，謝謝`;
+    }
+    if (this.isTwText(messageText)) replyText = cn2tw(replyText);
+    await message.say(replyText);
   }
 }
