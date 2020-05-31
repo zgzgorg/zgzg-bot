@@ -60,15 +60,19 @@ export class Message extends Handler {
         } catch (error) {
           replyText = error.message + `\n威廉　wechat id: kis87988`;
         }
+      } else if (roomList2020s.length == 0) {
+        replyText = `不好意思，目前沒有可以加的群，我們將盡快更新，請關注載歌在谷公眾號獲取最新消息`;
       } else {
         const roomList2020sContent = await this.getRoomListToString(
           roomList2020s
         );
+
         replyText =
           `不好意思，請告訴我你想加的群，以下是可以加入的群列表\n` +
           roomList2020sContent +
           `\n請輸入編號或群名加群，謝謝`;
       }
+
       if (this.isTwText(messageText)) replyText = cn2tw(replyText);
       await message.say(replyText);
     } catch (e) {
