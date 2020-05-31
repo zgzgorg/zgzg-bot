@@ -1,0 +1,25 @@
+{
+  "name": "zgzg-wechat-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node src/main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^11.11.1",
+    "dotenv": "^6.2.0",
+    "log4js": "^4.0.2",
+    "log4js-stackdriver-appender": "^1.0.5",
+    "wechaty": "^0.22.6",
+    "wechaty-puppet-padpro": "0.0.52"
+  },
+  "devDependencies": {
+    "ts-node": "^8.0.3",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.3.3333"
+  }
+}
