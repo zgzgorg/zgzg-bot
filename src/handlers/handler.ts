@@ -1,6 +1,7 @@
 import { logger } from "../logger";
 import { Wechaty } from "wechaty";
 import { MongoStorage } from "../mongo-storage";
+import { cn2tw, tw2cn } from "cjk-conv";
 import * as util from "../util";
 import {
   Contact as WechatyContact,
@@ -35,6 +36,11 @@ export abstract class Handler {
 
   protected getRandomIntInclusive(min: number, max: number) {
     return util.getRandomIntInclusive(min, max);
+  }
+
+  protected isTwText(text: string) {
+    const textTw = cn2tw(text);
+    return textTw == text;
   }
 
   protected async getRoomListToString(
