@@ -74,9 +74,10 @@ export abstract class Handler {
 
       const filterRoomList: WechatyRoom[] = [];
       for (const room of roomList) {
-        const roomTopic = await room.topic();
+        const roomTopic: string = await room.topic();
+        const roomTopicCn: string = tw2cn(roomTopic);
         for (const regexp of regexpGroup)
-          if (regexp.test(roomTopic)) filterRoomList.push(room);
+          if (regexp.test(roomTopicCn)) filterRoomList.push(room);
       }
       return filterRoomList;
     } catch (error) {
@@ -86,20 +87,29 @@ export abstract class Handler {
   }
 
   protected async getRoomList2020s() {
-    const room2020sRegexpGroup: RegExp[] = [
-      /ZGZGx开车群/gim,
+    const room2020sRegexpStringGroup: string[] = [
+      `ZGZGx开车群`,
       // TODO(WilliamC, kis87988): refactor to general room
-      /ZGZG[ -]2020s/gim,
-      /“云集”志愿者大群 载歌在谷2020S/gim,
-      /云生活-观众嘉年华/gim,
+      `ZGZG[ -]2020s`,
+      `“云集”志愿者大群 载歌在谷2020S`,
+      `云生活-观众嘉年华`,
     ];
+
+    const room2020sRegexpGroup: RegExp[] = room2020sRegexpStringGroup.map(
+      (s) => {
+        const sCn: string = tw2cn(s);
+        return new RegExp(sCn, "gim");
+      }
+    );
+
     const room2020sList = await this.getRoomList(room2020sRegexpGroup);
     return room2020sList;
   }
 
   protected async addUserToRoom(contact: WechatyContact, room: WechatyRoom) {
     const roomMaxSize = 500;
-    let roomMemberCount: number, hasMember: boolean;
+    let roomMemberCount: number = 0;
+    let hasMember: boolean = false;
     try {
       roomMemberCount = await room
         .memberAll()
@@ -131,8 +141,9 @@ export abstract class Handler {
   }
 
   protected async roomMatch(text: string, roomList: WechatyRoom[]) {
-    let trimText = text.trim();
-    
+    const trimText: string = text.trim();
+    const trimTextCn: string = tw2cn(trimText);
+
     // number only
     if (/\d+/gim.test(trimText)) {
       const roomIndex = +trimText - 1;
@@ -140,14 +151,12 @@ export abstract class Handler {
     }
 
     // text match room.topic()
-    const textRegexp: RegExp = RegExp(trimText, "gim");
+
+    const textRegexp: RegExp = RegExp(trimTextCn, "gim");
     for (const room of roomList) {
       const roomTopic: string = await room.topic();
-      const roomTopicCN: string = tw2cn(roomTopic);
-      const roomTopicTW: string = cn2tw(roomTopic);
-      if (textRegexp.test(roomTopic)) return room;
-      if (textRegexp.test(roomTopicCN)) return room;
-      if (textRegexp.test(roomTopicTW)) return room;
+      const roomTopicCn = tw2cn(roomTopic);
+      if (textRegexp.test(roomTopicCn)) return room;
     }
 
     // nothing match
