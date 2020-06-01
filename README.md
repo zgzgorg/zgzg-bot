@@ -3,16 +3,16 @@
 ## Requirements
 
 - OS package
-  
+
   - Ubuntu: `sudo apt-get install build-essential && sudo snap install shellcheck`
   - MacOS: `xcode-select --install`
 
 - Python
-  
-  Python enviroment point to python2.7. I.E when you type python in terminal is version 2.7 
+
+  Python enviroment point to python2.7. I.E when you type python in terminal is version 2.7
 
 - Application
-  
+
   - Node.js V10
 
 ## Install
@@ -31,6 +31,6 @@ npm start
 
 ## Developer
 
-*Recommended use VScode*
+_Recommended use VScode_
 
 TBD
