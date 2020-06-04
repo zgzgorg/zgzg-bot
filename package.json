@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "npx eslint src --ext .ts",
     "start": "npx ts-node src/main.ts",
-    "format": "npx prettier --write '{src/**/*.{ts,md},*.md,docs/**/*.md}'"
+    "format": "npx prettier --write '{src/**/*.{ts,md},*.md,docs/**/*.md}'",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "echo \"Warning: no unit test specified\""
   },
   "repository": {
     "type": "git",
