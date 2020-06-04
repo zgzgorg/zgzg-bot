@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint src --ext .ts",
     "start": "npx ts-node src/main.ts",
     "format": "npx prettier --write '{src/**/*.{ts,md},*.md,docs/**/*.md}'"
   },
