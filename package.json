@@ -45,7 +45,8 @@
   "husky": {
     "hooks": {    
       "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push":"./scripts/pre-push.sh"
     }
   },
   "lint-staged": {
