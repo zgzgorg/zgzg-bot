@@ -8,6 +8,10 @@
     "start": "npx ts-node src/main.ts",
     "format": "npx prettier --write '{src/**/*.{ts,md},*.md,docs/**/*.md}'"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zgzgorg/zgzg-bot.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
