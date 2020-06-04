@@ -13,7 +13,16 @@
     "url": "git@github.com:zgzgorg/zgzg-bot.git"
   },
   "author": "",
-  "license": "ISC",
+  "keywords":[
+    "bot",
+    "wechat",
+    "wechaty",
+    "wechat-bot",
+    "zgzg",
+    "zgzg-bot",
+    "zgzgorg"
+  ],
+  "homepage": "https://github.com/zgzgorg/zgzg-bot/blob/master/README.md",
   "dependencies": {
     "@types/node": "^14.0.5",
     "cjk-conv": "^1.2.57",
