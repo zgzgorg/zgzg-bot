@@ -18,6 +18,9 @@ rules:
     - perf
     - test
     - revert
+    - remove
+    - del
+
 help: |
   **Possible types**:
 
@@ -31,4 +34,6 @@ help: |
   `refactor`: Rewrites code without feature, performance or bug changes.
   `perf`:     Improves performance.
   `test`:     Adds or modifies tests.
-  `revert`:   Changes that reverting other changes
+  `revert`:   Changes that reverting other changes.
+  `remove`:   Remove package, code unused or no longer need.
+  `del`:      Delete package, code unused or no longer need (same with remove).
