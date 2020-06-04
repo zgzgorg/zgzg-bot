@@ -15,7 +15,7 @@
     "url": "git@github.com:zgzgorg/zgzg-bot.git"
   },
   "author": "",
-  "keywords":[
+  "keywords": [
     "bot",
     "wechat",
     "wechaty",
@@ -25,11 +25,11 @@
     "zgzgorg"
   ],
   "license": "",
-  "bug":{
+  "bug": {
     "url": "https://github.com/zgzgorg/zgzg-bot/issues"
   },
   "homepage": "https://github.com/zgzgorg/zgzg-bot/blob/master/README.md",
-  "peerDependencies": {},  
+  "peerDependencies": {},
   "dependencies": {
     "@types/node": "^14.0.5",
     "cjk-conv": "^1.2.57",
@@ -69,10 +69,14 @@
     }
   },
   "lint-staged": {
-    "{src/**/*.{ts,md},*.md,docs/**/*.md}": [
-      "npx eslint src --ext .ts --fix",
+    "{src/**/*.{ts}}": [
+      "npx eslint src --ext .ts --fix"
+    ],
+    "*.{ts,js,md}": [
       "npx prettier --write"
     ],
-    "*": "./scripts/pre-commit.sh"
+    "*": [
+      "./scripts/pre-commit.sh"
+    ]
   }
 }
