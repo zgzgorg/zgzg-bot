@@ -1,6 +1,6 @@
 {
   "name": "zgzg-wechat-bot",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "src/main.ts",
   "scripts": {
@@ -43,10 +43,10 @@
     "wechaty-puppet-padpro": "0.2.1"
   },
   "husky": {
-    "hooks": {    
+    "hooks": {
       "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
-      "pre-push":"./scripts/pre-push.sh"
+      "pre-push": "./scripts/pre-push.sh"
     }
   },
   "lint-staged": {
@@ -54,6 +54,6 @@
       "npx eslint src --ext .ts --fix",
       "npx prettier --write"
     ],
-    "*":"./scripts/pre-commit.sh"
+    "*": "./scripts/pre-commit.sh"
   }
 }
