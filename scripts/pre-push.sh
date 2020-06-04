@@ -21,7 +21,7 @@ set -e
 [ -z "$CYGWIN" ] && {
   # git rebase
   # rm -f package-lock.json
-  npm version patch --no-package-lock
+  [ -n "$NO_VERSION" ] && npm version patch --no-package-lock
   INNER_PRE_HOOK=1 git push
   cat <<'_STR_'
   ____ _ _        ____            _
