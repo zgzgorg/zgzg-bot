@@ -17,6 +17,7 @@ set -e
 
 # run linter here
 # run test here
+npm run test
 
 [ -z "$CYGWIN" ] && {
   # git rebase
