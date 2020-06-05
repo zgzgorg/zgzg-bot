@@ -10,7 +10,7 @@
 
 # GIT_ROOT=$(git rev-parse --show-toplevel)
 
-  cat <<'_STR_'
+cat <<'_STR_'
        _ _                                   _ _    
       (_) |                                 (_) |   
   __ _ _| |_    ___ ___  _ __ ___  _ __ ___  _| |_  
