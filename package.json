@@ -4,7 +4,14 @@
   "description": "",
   "main": "src/main.ts",
   "scripts": {
-    "lint": "npx eslint src --ext .ts",
+    "lint": "npm run check-node-version && npm run lint:es && npm run lint:md && npm run lint:sh",
+    "lint:fix": "npm run check-node-version && npm run lint:es:fix && npm run lint:md:fix && npm run lint:sh",
+    "lint:md": "npx markdownlint -i node_modules -i dist .",
+    "lint:md:fix": "npx markdownlint --fix -i node_modules -i dist .",
+    "lint:es": "npx eslint --ignore-pattern node_modules/ \"{bin,examples,src,scripts,tests}/**/*.ts\"",
+    "lint:es:fix": "npx eslint --fix --ignore-pattern node_modules/ \"{bin,examples,src,scripts,tests}/**/*.ts\"",
+    "lint:sh": "npx shellcheck scripts/*.sh",
+    "check-node-version": "npx check-node-version --node \">= 10\"",
     "start": "npx ts-node src/main.ts",
     "ts-node": "ts-node",
     "format": "npx prettier --write '{src/**/*.{ts,md},*.md,docs/**/*.md}'",
@@ -73,10 +80,16 @@
     }
   },
   "lint-staged": {
-    "{src/**/*.{ts}}": [
-      "npx eslint src --ext .ts --fix"
+    "*.ts": [
+      "npm run lint:es:fix"
     ],
-    "*.{ts,js,md}": [
+    "scripts/**/*.sh": [
+      "npm run lint:sh"
+    ],
+    "*.md": [
+      "npm run lint:md:fix"
+    ],
+    "*.{ts,js,md,json}": [
       "npx prettier --write"
     ],
     "*": [
