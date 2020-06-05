@@ -1,5 +1,8 @@
 # ZGZG bot
 
+[![Powered by Wechaty](https://img.shields.io/badge/Powered%20By-Wechaty-brightgreen.svg)](https://github.com/Wechaty/wechaty)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 ## Requirements
 
 - OS package
@@ -9,7 +12,8 @@
 
 - Python
 
-  Python enviroment point to python2.7. I.E when you type python in terminal is version 2.7
+  Python enviroment point to python2.7. I.E when you type python in terminal is
+  version 2.7
 
 - Application
 
@@ -18,9 +22,9 @@
 ## Install
 
 ```bash
-$ git clone git@github.com:zgzgorg/zgzg-bot.git
-$ cd zgzg-bot
-$ npm install
+git clone git@github.com:zgzgorg/zgzg-bot.git
+cd zgzg-bot
+npm install
 ```
 
 ## Run
@@ -31,8 +35,8 @@ npm start
 
 ## Developer
 
-You may need to ask for `.env` file that we use. Please contact William Chen([williamc@zgzg.io](williamc@zgzg.io)).
-
+You may need to ask for `.env` file that we use. Please contact
+William Chen([williamc@zgzg.io](williamc@zgzg.io)).
 _We recommended use VScode for development_
 
 ### Wechaty
@@ -41,7 +45,9 @@ We use package [Wechaty](https://github.com/wechaty/wechaty)
 
 ### Git push, Commit
 
-We have pre-push, pre-commit, and commit-msg hook powered by (husky)[https://github.com/typicode/husky] and (lint-staged)[https://github.com/okonet/lint-staged]
+We have pre-push, pre-commit, and commit-msg hook powered by
+[husky](https://github.com/typicode/husky) and
+[lint-staged](https://github.com/okonet/lint-staged)
 
 If you want to skip these please pass git `--no-verify` flag into.
 
@@ -49,9 +55,11 @@ If you want to skip these please pass git `--no-verify` flag into.
 
 ### Commit message
 
-We use conventional commit message to make our contributor easy understand code changes
+We use conventional commit message to make our contributor easy understand code
+changes
 
-information： [Commitlint](https://commitlint.js.org/), [Converntion commit](https://www.conventionalcommits.org/en/v1.0.0/)
+information： [Commitlint](https://commitlint.js.org/),
+[Converntion commit](https://www.conventionalcommits.org/en/v1.0.0/)
 
 The commit message format:
 
@@ -61,7 +69,7 @@ body?
 footer?
 ```
 
-Refer: https://commitlint.js.org/#/concepts-commit-conventions
+Refer: <https://commitlint.js.org/#/concepts-commit-conventions>
 
 #### Commit message type
 
@@ -69,7 +77,8 @@ refer to `.commitlintrc.yml`
 
 ```txt
 chore:    Change build process, tooling or dependencies.
-ci:       Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+ci:       Changes to our CI configuration files and scripts
+          (example scopes: Travis, Circle, BrowserStack, SauceLabs)
 feat:     Adds a new feature.
 add:      Adds a new function, class.
 fix:      Solves a bug.
