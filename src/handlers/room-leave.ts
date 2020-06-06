@@ -5,8 +5,8 @@ export class RoomLeave extends Handler {
   public async listener(
     room: WechatyRoom,
     leaverList: WechatyContact[],
-    remover: WechatyContact,
-    date: Date
+    remover?: WechatyContact,
+    date?: Date
   ) {
     try {
       const roomTopic = await room.topic();

@@ -5,25 +5,36 @@ import { MongoStorage } from "./mongo-storage";
 import * as handlers from "./handlers";
 
 import { Wechaty } from "wechaty";
-import { PuppetPadplus } from "wechaty-puppet-padplus";
 
 function botInstantiate(): Wechaty {
-  const puppet: PuppetPadplus = new PuppetPadplus({
-    token: process.env.WECHATY_PUPPET_PADPLUS_TOKEN,
-  });
+  if (!process.env.WECHATY_PUPPET_PADPLUS_TOKEN) {
+    logger.error(
+      `env: "WECHATY_PUPPET_PADPLUS_TOKEN" not define, please define token in .env file`
+    );
+    throw Error(`token not define`);
+  }
 
   const bot = new Wechaty({
     name: "ZGZG Bot",
-    puppet: puppet,
+    puppet: "wechaty-puppet-padplus",
+    puppetOptions: {
+      token: process.env.WECHATY_PUPPET_PADPLUS_TOKEN,
+    },
   });
 
   logger.info(`wechaty version:${bot.version()},`);
-  logger.info(`wechaty puppet(${puppet.name()}) version:${puppet.version()}`);
   return bot;
 }
 
 async function mongoStorageInstantiate(): Promise<MongoStorage> {
-  const mongoStorage = new MongoStorage();
+  if (!process.env.MONGODB_URI) {
+    logger.error(
+      `env: "MONGODB_URI" not define, please define url in .env file`
+    );
+    throw Error(`mongoDB url not define`);
+  }
+
+  const mongoStorage = new MongoStorage(process.env.MONGODB_URI);
   await mongoStorage.init();
 
   return mongoStorage;
