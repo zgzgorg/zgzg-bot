@@ -16,35 +16,28 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
 
-    "lib": [
-      "dom",
-      "esnext",
-    ],
+    "lib": ["dom", "esnext"],
 
-    "strict": true,
+    // "strict": true,
     "noEmitOnError": true,
-    "noUnusedLocals": true,
+    // "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noUnusedParameters": true,
+    // "noImplicitAny": true,
+    // "noUnusedParameters": true,
     "noImplicitThis": true,
 
-    "outDir": "dist",
+    "outDir": "dist"
   },
 
-  "exclude": [
-    "node_modules/",
-    "dist/",
-    "tests/fixtures/",
-  ],
-  
+  "exclude": ["node_modules/", "dist/", "tests/fixtures/"],
+
   "include": [
     "bin/*.ts",
     "examples/**/*.ts",
     "scripts/**/*.ts",
     "src/**/*.ts",
-    "tests/**/*.spec.ts",
-  ],
+    "tests/**/*.spec.ts"
+  ]
 }

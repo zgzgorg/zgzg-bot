@@ -6,13 +6,18 @@ const logger = log4js.getLogger();
 export class MongoStorage {
   private mongodbClient;
   private mongodbDb;
+  private dbName: string;
+  private url: string;
+  constructor(mongoDbUrl: string) {
+    this.url = mongoDbUrl;
+    this.dbName = mongoDbUrl.split(`/`)[-1];
+  }
 
   public async init() {
     const MongoClient = require("mongodb").MongoClient;
-    const dbName = process.env.MONGODB_URI.split(`/`)[-1];
     // Use connect method to connect to the server
-    this.mongodbClient = await MongoClient.connect(process.env.MONGODB_URI);
-    this.mongodbDb = this.mongodbClient.db(dbName);
+    this.mongodbClient = await MongoClient.connect(this.url);
+    this.mongodbDb = this.mongodbClient.db(this.dbName);
   }
 
   public async close() {
