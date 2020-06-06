@@ -7,7 +7,7 @@ export class RoomTopic extends Handler {
     topic: string,
     oldTopic: string,
     changer: WechatyContact,
-    date: Date
+    date?: Date
   ) {
     try {
       logger.info(

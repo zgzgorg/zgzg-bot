@@ -6,7 +6,7 @@ export class RoomJoin extends Handler {
     room: WechatyRoom,
     inviteeList: WechatyContact[],
     inviter: WechatyContact,
-    date: Date
+    date?: Date
   ) {
     try {
       const roomTopic = await room.topic();
