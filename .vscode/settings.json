@@ -1,6 +1,7 @@
 {
   "eslint.validate": ["javascript", "typescript"],
   "cSpell.words": [
+    "appenders",
     "appid",
     "commitlint",
     "commitlintrc",
@@ -20,6 +21,7 @@
     "wechaty",
     "weixin",
     "xcode",
+    "xinbenlv",
     "zgzg",
     "zgzgorg"
   ]
