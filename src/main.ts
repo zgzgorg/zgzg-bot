@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 import { logger } from "./logger";
-import { MongoStorage } from "./mongo-storage";
 import * as handlers from "./handlers";
 
 import { Wechaty } from "wechaty";
@@ -26,41 +25,26 @@ function botInstantiate(): Wechaty {
   return bot;
 }
 
-async function mongoStorageInstantiate(): Promise<MongoStorage> {
-  if (!process.env.MONGODB_URI) {
-    logger.error(
-      `env: "MONGODB_URI" not define, please define url in .env file`
-    );
-    throw Error(`mongoDB url not define`);
-  }
-
-  const mongoStorage = new MongoStorage(process.env.MONGODB_URI);
-  await mongoStorage.init();
-
-  return mongoStorage;
-}
-
 async function main() {
   logger.info(`Start ZGZG bot`);
 
-  const mongoStorage: MongoStorage = await mongoStorageInstantiate();
   const bot: Wechaty = botInstantiate();
 
   const botHandler = {
-    error: new handlers.Error_(bot, mongoStorage),
-    ready: new handlers.Ready(bot, mongoStorage),
-    start: new handlers.Start(bot, mongoStorage),
-    stop: new handlers.Stop(bot, mongoStorage),
-    scan: new handlers.Scan(bot, mongoStorage),
-    login: new handlers.Login(bot, mongoStorage),
-    logout: new handlers.Logout(bot, mongoStorage),
-    message: new handlers.Message(bot, mongoStorage),
-    friendship: new handlers.Friendship(bot, mongoStorage),
-    roomJoin: new handlers.RoomJoin(bot, mongoStorage),
-    roomLeave: new handlers.RoomLeave(bot, mongoStorage),
-    roomTopic: new handlers.RoomTopic(bot, mongoStorage),
-    roomInvite: new handlers.RoomInvite(bot, mongoStorage),
-    heartbeat: new handlers.Heartbeat(bot, mongoStorage),
+    error: new handlers.Error_(bot),
+    ready: new handlers.Ready(bot),
+    start: new handlers.Start(bot),
+    stop: new handlers.Stop(bot),
+    scan: new handlers.Scan(bot),
+    login: new handlers.Login(bot),
+    logout: new handlers.Logout(bot),
+    message: new handlers.Message(bot),
+    friendship: new handlers.Friendship(bot),
+    roomJoin: new handlers.RoomJoin(bot),
+    roomLeave: new handlers.RoomLeave(bot),
+    roomTopic: new handlers.RoomTopic(bot),
+    roomInvite: new handlers.RoomInvite(bot),
+    heartbeat: new handlers.Heartbeat(bot),
   };
 
   // bind all listeners
