@@ -12,7 +12,7 @@
   "dependencies": {
     "@types/node": "^11.11.1",
     "dotenv": "^6.2.0",
-    "log4js": "^4.0.2",
+    "log4js": "^6.3.0",
     "log4js-stackdriver-appender": "^1.0.5",
     "mongodb": "^3.1.13",
     "wechaty": "^0.22.6",
