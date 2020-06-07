@@ -20,6 +20,7 @@ rules:
     - revert
     - remove
     - del
+  body-leading-blank: [0]
 
 help: |
   **Possible types**:
