@@ -16,7 +16,7 @@
     "log4js-stackdriver-appender": "^1.0.5",
     "mongodb": "^3.1.13",
     "wechaty": "^0.22.6",
-    "wechaty-puppet-padpro": "0.0.52"
+    "wechaty-puppet-padpro": "0.2.1"
   },
   "devDependencies": {
     "ts-node": "^8.0.3",
