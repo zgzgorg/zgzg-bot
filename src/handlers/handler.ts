@@ -1,6 +1,5 @@
 import { logger } from "../logger";
 import { Wechaty } from "wechaty";
-import { MongoStorage } from "../mongo-storage";
 import { cn2tw, tw2cn } from "cjk-conv";
 import * as util from "../util";
 import {
@@ -24,10 +23,8 @@ export {
 export abstract class Handler {
   // TODO(WilliamC, kis87988): add Wechaty cache for findAll() room
   protected bot: Wechaty;
-  protected mongoStorage: MongoStorage;
-  constructor(bot: Wechaty, mongoStorage: MongoStorage) {
+  constructor(bot: Wechaty, ...args: any[]) {
     this.bot = bot;
-    this.mongoStorage = mongoStorage;
   }
 
   protected async sleep(ms: number = util.getRandomIntInclusive(3000, 5000)) {

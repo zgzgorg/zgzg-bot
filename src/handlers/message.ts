@@ -21,7 +21,6 @@ export class Message extends Handler {
 
   public async listener(message: WechatyMessage) {
     logger.debug({ event: "message", data: message });
-    // this.mongoStorage.save(`WeChatyPadproMessage`, message);
 
     try {
       const fromContact: WechatyContact | null = message.from();
