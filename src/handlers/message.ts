@@ -72,7 +72,7 @@ export class Message extends Handler {
           `\n請輸入編號或群名加群，謝謝`;
       }
 
-      if (this.isTwText(messageText)) replyText = cn2tw(replyText);
+      if (this.isTcText(messageText)) replyText = cn2tw(replyText);
       else replyText = tw2cn(replyText);
       await message.say(replyText);
     } catch (e) {
