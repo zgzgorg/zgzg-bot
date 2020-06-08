@@ -124,6 +124,7 @@ export abstract class Handler {
       );
     }
 
+    if (hasMember) throw new Error("不好意思，你已經在想加的群中了");
     if (roomMemberCount >= roomMaxSize)
       throw new Error(
         "不好意思，想加的群超過500人了，請聯絡管理員William(Wechat ID:kis87988)"
