@@ -35,7 +35,7 @@ export abstract class Handler {
     return util.getRandomIntInclusive(min, max);
   }
 
-  protected isTwText(text: string) {
+  protected isTcText(text: string) {
     const textTw = cn2tw(text);
     return textTw == text;
   }
