@@ -57,7 +57,8 @@ export class Message extends Handler {
           const roomAnnounce: string = await room.announce().catch((e) => "");
           replyText = `歡迎加入 ${roomTopic},請看以下群公告:\n` + roomAnnounce;
         } catch (error) {
-          replyText = error.message + `\n威廉　wechat id: kis87988`;
+          replyText =
+            error.message + `\n請聯絡管理員William威廉(wechat id: kis87988)`;
         }
       } else if (roomList2020s.length == 0) {
         replyText = `不好意思，目前沒有可以加的群，我們將盡快更新，請關注載歌在谷公眾號獲取最新消息`;

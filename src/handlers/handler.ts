@@ -120,16 +120,12 @@ export abstract class Handler {
         "addUserToRoom() call room.memberAll(),room.has() exception: " +
           error.stack
       );
-      throw new Error(
-        "不好意思，邀請過程中發生點問題，請聯絡管理員 William(Wechat ID:kis87988)"
-      );
+      throw new Error("不好意思，邀請過程中發生點問題");
     }
 
     if (hasMember) throw new Error("不好意思，你已經在想加的群中了");
     if (roomMemberCount >= roomMaxSize)
-      throw new Error(
-        "不好意思，想加的群超過500人了，請聯絡管理員William(Wechat ID:kis87988)"
-      );
+      throw new Error("不好意思，想加的群超過500人了");
     await this.sleep();
     try {
       room.add(contact);
