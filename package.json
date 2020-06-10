@@ -47,7 +47,7 @@
     "log4js-stackdriver-appender": "^1.0.5",
     "mongodb": "^3.1.13",
     "qrcode-terminal": "^0.12.0",
-    "wechaty": "0.39.11",
+    "wechaty": "0.40.8",
     "wechaty-puppet-padplus": "0.6.1"
   },
   "devDependencies": {
