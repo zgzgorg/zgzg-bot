@@ -88,7 +88,7 @@ export abstract class Handler {
       `ZGZGx开车群`,
       // TODO(WilliamC, kis87988): refactor to general room
       `ZGZG[ -]2020s`,
-      `“云集”志愿者大群 载歌在谷2020S`,
+      `载歌在谷2020S`,
       `云生活-观众嘉年华`,
       `载歌在谷“众说纷‘云’”观众群`,
     ];
