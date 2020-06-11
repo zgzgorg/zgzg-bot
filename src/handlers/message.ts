@@ -43,7 +43,7 @@ export class Message extends Handler {
       // TODO(WilliamC, kis87988): Check blocklist here
 
       if (fromRoom) {
-        // TODO(WilliamC, kis87988): message from group chat room
+        // Message from group chat room
         return;
       }
 
