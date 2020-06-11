@@ -88,8 +88,9 @@ export abstract class Handler {
       `ZGZGx开车群`,
       // TODO(WilliamC, kis87988): refactor to general room
       `ZGZG[ -]2020s`,
-      `“云集”志愿者大群 载歌在谷2020S`,
+      `载歌在谷2020S`,
       `云生活-观众嘉年华`,
+      `载歌在谷“众说纷‘云’”观众群`,
     ];
 
     const room2020sRegexpGroup: RegExp[] = room2020sRegexpStringGroup.map(
@@ -119,16 +120,12 @@ export abstract class Handler {
         "addUserToRoom() call room.memberAll(),room.has() exception: " +
           error.stack
       );
-      throw new Error(
-        "不好意思，邀請過程中發生點問題，請聯絡管理員 William(Wechat ID:kis87988)"
-      );
+      throw new Error("不好意思，邀請過程中發生點問題");
     }
 
     if (hasMember) throw new Error("不好意思，你已經在想加的群中了");
     if (roomMemberCount >= roomMaxSize)
-      throw new Error(
-        "不好意思，想加的群超過500人了，請聯絡管理員William(Wechat ID:kis87988)"
-      );
+      throw new Error("不好意思，想加的群超過500人了");
     await this.sleep();
     try {
       room.add(contact);

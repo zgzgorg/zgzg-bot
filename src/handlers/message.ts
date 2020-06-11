@@ -43,37 +43,44 @@ export class Message extends Handler {
       // TODO(WilliamC, kis87988): Check blocklist here
 
       if (fromRoom) {
-        // TODO(WilliamC, kis87988): message from group chat room
+        // Message from group chat room
         return;
-      }
-
-      // User talk to bot directly
-      const roomList2020s: WechatyRoom[] = await this.getRoomList2020s();
-      let room: WechatyRoom | null = null;
-      if ((room = await this.roomMatch(messageText, roomList2020s))) {
-        try {
-          await this.addUserToRoom(fromContact, room);
-          const roomTopic = await room.topic();
-          const roomAnnounce: string = await room.announce().catch((e) => "");
-          replyText = `歡迎加入 ${roomTopic},請看以下群公告:\n` + roomAnnounce;
-        } catch (error) {
-          replyText = error.message + `\n威廉　wechat id: kis87988`;
-        }
-      } else if (roomList2020s.length == 0) {
-        replyText = `不好意思，目前沒有可以加的群，我們將盡快更新，請關注載歌在谷公眾號獲取最新消息`;
       } else {
-        const roomList2020sContent = await this.getRoomListToString(
-          roomList2020s
-        );
+        // User talk to bot directly
+        const roomList2020s: WechatyRoom[] = await this.getRoomList2020s();
+        let room: WechatyRoom | null = null;
+        if ((room = await this.roomMatch(messageText, roomList2020s))) {
+          try {
+            await this.addUserToRoom(fromContact, room);
+            const roomTopic = await room.topic();
+            const roomAnnounce: string = await room.announce().catch((e) => "");
+            replyText =
+              `歡迎加入 ${roomTopic},請看以下群公告:\n` + roomAnnounce;
+          } catch (error) {
+            replyText =
+              error.message + `\n請聯絡管理員William威廉(wechat id: kis87988)`;
+          }
+        } else if (roomList2020s.length == 0) {
+          replyText = `不好意思，目前沒有可以加的群，我們將盡快更新，請關注載歌在谷公眾號獲取最新消息`;
+        } else {
+          const roomList2020sContent = await this.getRoomListToString(
+            roomList2020s
+          );
 
-        replyText =
-          `不好意思，請告訴我你想加的群，以下是可以加入的群列表\n` +
-          roomList2020sContent +
-          `\n請輸入編號或群名加群，謝謝`;
+          replyText =
+            `不好意思，請告訴我你想加的群，以下是可以加入的群列表\n` +
+            roomList2020sContent +
+            `\n請輸入編號或群名加群，謝謝`;
+        }
       }
 
       if (this.isTcText(messageText)) replyText = cn2tw(replyText);
       else replyText = tw2cn(replyText);
+
+      const delayReplyTime =
+        (replyText.length * 0.5 + this.getRandomIntInclusive(1, 5)) * 1000;
+      await this.sleep(delayReplyTime);
+
       await message.say(replyText);
     } catch (e) {
       logger.error("Bot", "message event exception: %s", e.stack);

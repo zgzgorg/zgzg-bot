@@ -1,6 +1,6 @@
 {
   "name": "zgzg-wechat-bot",
-  "version": "2.0.7",
+  "version": "2.0.10",
   "description": "",
   "main": "src/main.ts",
   "scripts": {
@@ -47,12 +47,13 @@
     "log4js-stackdriver-appender": "^1.0.5",
     "mongodb": "^3.1.13",
     "qrcode-terminal": "^0.12.0",
-    "wechaty": "^0.40.4"
+    "wechaty": "0.39.11",
+    "wechaty-puppet-padplus": "0.6.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
     "check-node-version": "^4.0.3",
     "eslint": "^7.2.0",
