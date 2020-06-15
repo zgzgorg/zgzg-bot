@@ -45,7 +45,7 @@
     "dotenv": "^8.2.0",
     "log4js": "^6.3.0",
     "log4js-stackdriver-appender": "^1.0.5",
-    "mongodb": "^3.1.13",
+    "mongodb": "^3.5.9",
     "qrcode-terminal": "^0.12.0",
     "wechaty": "0.39.11",
     "wechaty-puppet-padplus": "0.6.1"
