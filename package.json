@@ -51,7 +51,7 @@
     "wechaty-puppet-padplus": "0.6.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
+    "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
