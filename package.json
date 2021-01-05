@@ -40,7 +40,7 @@
   "homepage": "https://github.com/zgzgorg/zgzg-bot/blob/master/README.md",
   "peerDependencies": {},
   "dependencies": {
-    "@types/node": "^14.0.13",
+    "@types/node": "^14.14.20",
     "cjk-conv": "^1.2.84",
     "dotenv": "^8.2.0",
     "log4js": "^6.3.0",
