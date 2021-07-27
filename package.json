@@ -41,7 +41,7 @@
   "peerDependencies": {},
   "dependencies": {
     "@types/node": "^14.0.13",
-    "cjk-conv": "^1.2.84",
+    "cjk-conv": "^1.2.129",
     "dotenv": "^8.2.0",
     "log4js": "^6.3.0",
     "log4js-stackdriver-appender": "^1.0.5",
